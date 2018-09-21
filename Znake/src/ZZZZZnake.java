@@ -4,10 +4,10 @@ public class ZZZZZnake {
 	public static void main(String[] args) {
 		
 		//Startpositionen
-		java.awt.Point playerPosition = new java.awt.Point(10, 9);
-		java.awt.Point snakePosition = new java.awt.Point(30, 2);
-		java.awt.Point goldPosition = new java.awt.Point(6, 6);
-		java.awt.Point doorPosition = new java.awt.Point(0, 5);
+		java.awt.Point playerPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
+		java.awt.Point snakePosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
+		java.awt.Point goldPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
+		java.awt.Point doorPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
 		boolean rich = false;
 		
 		//Spielstart
