@@ -6,7 +6,8 @@ public class ZZZZZnake {
 		//Startpositionen
 		java.awt.Point playerPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
 		java.awt.Point snakePosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
-		java.awt.Point goldPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
+		java.awt.Point firstGoldPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
+		java.awt.Point secondGoldPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
 		java.awt.Point doorPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
 		boolean rich = false;
 		
@@ -20,7 +21,7 @@ public class ZZZZZnake {
 						System.out.print("&");
 					else if(snakePosition.equals(p))
 						System.out.print("S");
-					else if(goldPosition.equals(p))
+					else if(firstGoldPosition.equals(p) || secondGoldPosition.equals(p))
 						System.out.print("$");
 					else if(doorPosition.equals(p))
 							System.out.print("#");
@@ -37,10 +38,12 @@ public class ZZZZZnake {
 			}
 			if(playerPosition.equals(snakePosition)) {
 				System.out.println("ZZZZZZZ. Die Schlange hat dich!");
+				return;
 			}
-			if(playerPosition.equals(goldPosition)) {
+			if(playerPosition.equals(firstGoldPosition) || playerPosition.equals(secondGoldPosition)) {
 				rich = true;
-				goldPosition.setLocation(-1, 1);
+				firstGoldPosition.setLocation(-1, 1);
+				secondGoldPosition.setLocation(-1, 1);
 			}
 			
 			//Konsoleneingabe und Spielersteuerung
