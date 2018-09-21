@@ -5,7 +5,8 @@ public class ZZZZZnake {
 		
 		//Startpositionen
 		java.awt.Point playerPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
-		java.awt.Point snakePosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
+		java.awt.Point firstSnakePosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
+		java.awt.Point secondSnakePosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
 		java.awt.Point firstGoldPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
 		java.awt.Point secondGoldPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
 		java.awt.Point doorPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
@@ -19,7 +20,7 @@ public class ZZZZZnake {
 					java.awt.Point p = new java.awt.Point(x, y);
 					if(playerPosition.equals(p))
 						System.out.print("&");
-					else if(snakePosition.equals(p))
+					else if(firstSnakePosition.equals(p) || secondSnakePosition.equals(p))
 						System.out.print("S");
 					else if(firstGoldPosition.equals(p) || secondGoldPosition.equals(p))
 						System.out.print("$");
@@ -36,7 +37,7 @@ public class ZZZZZnake {
 				System.out.println("Gewonnen!");
 				return;
 			}
-			if(playerPosition.equals(snakePosition)) {
+			if(playerPosition.equals(firstSnakePosition) || playerPosition.equals(secondSnakePosition)) {
 				System.out.println("ZZZZZZZ. Die Schlange hat dich!");
 				return;
 			}
@@ -54,15 +55,26 @@ public class ZZZZZnake {
 				case "r": playerPosition.x = Math.min(39, playerPosition.x + 1); break;
 			}
 			
-			//Schlange bewegt sich in Richtung Spieler
-			if(playerPosition.x < snakePosition.x)
-				snakePosition.x--;
-			else if(playerPosition.x > snakePosition.x)
-				snakePosition.x++;
-			if(playerPosition.y < snakePosition.y)
-				snakePosition.y--;
-			else if(playerPosition.y > snakePosition.y)
-				snakePosition.y++;
+			//Schlangen bewegen sich in Richtung Spieler
+			//Erste Schlange
+			if(playerPosition.x < firstSnakePosition.x)
+				firstSnakePosition.x--;
+			else if(playerPosition.x > firstSnakePosition.x)
+				firstSnakePosition.x++;
+			if(playerPosition.y < firstSnakePosition.y)
+				firstSnakePosition.y--;
+			else if(playerPosition.y > firstSnakePosition.y)
+				firstSnakePosition.y++;
+			
+			//Zweite Schlange
+			if(playerPosition.x < secondSnakePosition.x)
+				secondSnakePosition.x--;
+			else if(playerPosition.x > secondSnakePosition.x)
+				secondSnakePosition.x++;
+			if(playerPosition.y < secondSnakePosition.y)
+				secondSnakePosition.y--;
+			else if(playerPosition.y > secondSnakePosition.y)
+				secondSnakePosition.y++;
 		}		
 	}
 }
