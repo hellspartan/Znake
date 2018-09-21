@@ -10,10 +10,13 @@ public class ZZZZZnake {
 		java.awt.Point firstGoldPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
 		java.awt.Point secondGoldPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
 		java.awt.Point doorPosition = new java.awt.Point((int)(Math.random() * 40), (int)(Math.random() * 10));
+		
 		boolean rich = false;
+		int count = 0;
 		
 		//Spielstart
 		while(true) {
+						
 			//Raster mit Figuren zeichnen
 			for(int y = 0; y < 10; y++) {
 				for(int x = 0; x < 40; x++) {
@@ -57,24 +60,27 @@ public class ZZZZZnake {
 			
 			//Schlangen bewegen sich in Richtung Spieler
 			//Erste Schlange
-			if(playerPosition.x < firstSnakePosition.x)
-				firstSnakePosition.x--;
-			else if(playerPosition.x > firstSnakePosition.x)
-				firstSnakePosition.x++;
-			if(playerPosition.y < firstSnakePosition.y)
-				firstSnakePosition.y--;
-			else if(playerPosition.y > firstSnakePosition.y)
-				firstSnakePosition.y++;
-			
-			//Zweite Schlange
-			if(playerPosition.x < secondSnakePosition.x)
-				secondSnakePosition.x--;
-			else if(playerPosition.x > secondSnakePosition.x)
-				secondSnakePosition.x++;
-			if(playerPosition.y < secondSnakePosition.y)
-				secondSnakePosition.y--;
-			else if(playerPosition.y > secondSnakePosition.y)
-				secondSnakePosition.y++;
+			if(count>=5) {
+				if(playerPosition.x < firstSnakePosition.x)
+					firstSnakePosition.x--;
+				else if(playerPosition.x > firstSnakePosition.x)
+					firstSnakePosition.x++;
+				if(playerPosition.y < firstSnakePosition.y)
+					firstSnakePosition.y--;
+				else if(playerPosition.y > firstSnakePosition.y)
+					firstSnakePosition.y++;
+				
+				//Zweite Schlange
+				if(playerPosition.x < secondSnakePosition.x)
+					secondSnakePosition.x--;
+				else if(playerPosition.x > secondSnakePosition.x)
+					secondSnakePosition.x++;
+				if(playerPosition.y < secondSnakePosition.y)
+					secondSnakePosition.y--;
+				else if(playerPosition.y > secondSnakePosition.y)
+					secondSnakePosition.y++;
+			}
+			count++;
 		}		
 	}
 }
